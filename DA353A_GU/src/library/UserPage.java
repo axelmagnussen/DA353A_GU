@@ -5,14 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class UserPage extends JPanel implements ActionListener {
+	
 	private LibraryController libraryController;
-	private JPanel pnl = new JPanel();
 	private JLabel welcomeXlbl = new JLabel();
 	private JLabel txtFlbl = new JLabel("Media ID:");
 	private Font welcomeFont = new Font ("SansSerif", Font.PLAIN, 16);

@@ -1,5 +1,6 @@
 package library;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class LibraryApp {
@@ -20,7 +21,9 @@ public class LibraryApp {
 		frame.setSize(400, 190); // width, height
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null); // centers window
-		frame.setResizable(false);		
+		frame.setResizable(false);	
+		
+		frame.setIconImage(new ImageIcon("src/files/book.png").getImage());
 	}
 
 	public static void showUserPage() {
@@ -32,5 +35,4 @@ public class LibraryApp {
 		frame.repaint();             
 		frame.revalidate();          		
 	}
-
 }
