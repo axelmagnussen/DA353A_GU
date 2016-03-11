@@ -48,6 +48,7 @@ public class UserPage extends JPanel implements ActionListener {
 		add(borrowBtn);
 		borrowBtn.addActionListener(this);
 		
+		
 		returnBtn.setBounds(160,120, 90, 35);
 		returnBtn.setSize(90, 35);
 		add(returnBtn);
