@@ -13,10 +13,11 @@ import javax.swing.JTextField;
 
 public class LogInPage extends JFrame implements ActionListener {
 	private JPanel thePanel = new JPanel();
-	private JLabel label = new JLabel("Ange personnummer:");
+	private JLabel welcomelbl = new JLabel("WELCOME!");
+	private JLabel label = new JLabel("Enter ID:");
 	private Font thisFont = new Font ("SansSerif", Font.PLAIN, 14);
 	public JTextField logInTxtF = new JTextField();
-	public JButton logInBtn = new JButton("Logga In");
+	public JButton logInBtn = new JButton("Sign In");
 	
 	private LibraryController libraryController;
 	
@@ -27,18 +28,24 @@ public class LogInPage extends JFrame implements ActionListener {
 
 		thePanel.setLayout(null);
 
-		//"Ange personnummer: "-texten
+		//Welcome
+		welcomelbl.setFont(thisFont);
+		welcomelbl.setBounds(165, 20, 80, 25);
+		welcomelbl.setSize(400, 20);
+		thePanel.add(welcomelbl);
+		
+		//"Enter ID: "-texten
 		label.setFont(thisFont);
-		label.setBounds(40, 40, 80, 25);
+		label.setBounds(90, 70, 80, 25);
 		label.setSize(170, 20);
 		thePanel.add(label);
 		
 		//Textfält för att skriva in personnummer
-		logInTxtF.setBounds(180,40,160,25);
+		logInTxtF.setBounds(150,70,160,25);
 		thePanel.add(logInTxtF);
 		
 		//Inloggnigsknapp
-		logInBtn.setBounds(250, 80, 80, 25);
+		logInBtn.setBounds(220, 100, 80, 25);
 		logInBtn.setSize(90, 30);
 		thePanel.add(logInBtn);
 		
@@ -59,7 +66,7 @@ public class LogInPage extends JFrame implements ActionListener {
 		LibraryController lController = new LibraryController();
 		LogInPage logInP = new LogInPage(lController);
 		
-		JFrame frame = new JFrame("Inloggning");
+		JFrame frame = new JFrame("Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(logInP.thePanel);
 		frame.setSize(400, 190);
