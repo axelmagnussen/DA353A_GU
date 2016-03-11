@@ -44,7 +44,7 @@ public class LibraryMember {
 	 * @param media
 	 *            The media to be marked as borrowed.
 	 */
-	void put(Date date, Media media) {
+	public void put(Date date, Media media) {
 		borrowedMedia.put(date, media);
 	}
 
@@ -73,16 +73,29 @@ public class LibraryMember {
 	 * @return The number of items in the LibraryMemebers collection of borrowed
 	 *         media.
 	 */
-	int size() {
+	public int size() {
 		return borrowedMedia.size();
 	}
 
 	/**
-	 * 
+	 * @return id of LibraryMember
+	 */
+	public String getId() {
+		return this.id;
+	}
+	
+	/**
 	 * @return The name of the LibraryMember
 	 */
 	public String getName() {
 		return this.name;
+	}
+	
+	/**
+	 * @return phone number of the LibraryMember
+	 */
+	public String getPhone() {
+		return this.phone;
 	}
 
 }
