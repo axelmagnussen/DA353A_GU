@@ -2,6 +2,7 @@ package media;
 
 import java.util.Date;
 
+<<<<<<< HEAD
 public class Media {
 	
 	private int id;
