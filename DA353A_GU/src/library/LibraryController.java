@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import media.Media;
 
 public class LibraryController {
-	
+
 	private Library library;
 	private LibraryMember currentUser;
 
@@ -65,4 +65,18 @@ public class LibraryController {
 		LibraryApp.showLoginPage();
 		this.setCurrentUser(null);
 	}
+
+	public void returnMedia(int idNbr) {
+		Media media;
+		if ((media = library.getMedia(idNbr)) != null) {
+			Date date = media.getBorrowDate();
+			media.setBorrowed(false);
+			currentUser.remove(date);
+		} else {
+			JOptionPane.showMessageDialog(null, "Entered id is not associated with a media!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		}
+	}
+
+
 }
