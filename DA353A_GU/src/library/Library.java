@@ -95,4 +95,7 @@ public class Library {
 		return members;
 	}
 
+	public LibraryMember getMember(String idNbr) {
+		return members.get(idNbr);
+	}
 }
