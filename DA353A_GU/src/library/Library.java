@@ -27,6 +27,13 @@ public class Library {
 		}
 		return false;
 	}
+	
+	public boolean idExists(int idNbr) {
+		if(media.containsKey(idNbr)) {
+			return true;
+		}
+		return false;
+	}
 
 	private void readMembers(String filename) {
 		members = new AVLTree<String, LibraryMember>();
