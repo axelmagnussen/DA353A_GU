@@ -10,8 +10,6 @@ import java.util.Iterator;
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,9 +18,16 @@ import collections.ArrayList;
 import media.Book;
 import media.Media;
 
+/**
+ * 
+ * @author 
+ *
+ */
 @SuppressWarnings("serial")
 public class MediaTable extends JTable {
-	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss:SS");
+	
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd, HH:mm:ss");
+	@SuppressWarnings("unused")
 	private AVLTree<Date, Media> media;
 
 	private Font font = new Font("Segoe UI", Font.PLAIN, 16);
@@ -31,6 +36,7 @@ public class MediaTable extends JTable {
 	{
 		this.media = media;
 		this.setFont(font);
+		
 		this.setModel(new DefaultTableModel() 
 		{
 			@Override
@@ -47,20 +53,20 @@ public class MediaTable extends JTable {
 		model.addColumn("Title");
 		model.addColumn("Year");
 
-		ArrayList<Date> al = (ArrayList<Date>) media.keys();
-		Iterator<Date> alit = al.iterator();
-
-
-		Iterator<Media> it = media.iterator();
-		while (it.hasNext()) 
+		if(media != null)
 		{
-			Media next = it.next();
-			
-			// Append a row
-			model.addRow(new Object[] {sdf.format(alit.next()), next.getId(), next.getTitle(), next.getYear()});
-		}
-		this.getSelectionModel().addListSelectionListener(new SelectionListener());
+			ArrayList<Date> al = (ArrayList<Date>) media.keys();
+			Iterator<Date> alit = al.iterator();
 
+			Iterator<Media> it = media.iterator();
+			while (it.hasNext()) {
+				Media next = it.next();
+				
+				// Append a row
+				model.addRow(new Object[] {sdf.format(alit.next()), next.getId(), next.getTitle(), next.getYear()});
+			}
+		}
+		
 		this.setFocusable(false);
 		this.setRowSelectionAllowed(true);
 
@@ -69,10 +75,11 @@ public class MediaTable extends JTable {
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
 					boolean hasFocus, int row, int column) {
 
-				if (row == 0) {
-					setBackground(new Color(153, 187, 255));
-				} else {
-					setBackground(new Color(242, 242, 242));
+				if (row%3 == 0) {
+					setBackground(new Color(249, 255, 229));
+				}
+				else {
+					setBackground(new Color(235, 247, 250));
 				}
 
 				return super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
@@ -83,46 +90,6 @@ public class MediaTable extends JTable {
 		{
 			this.setDefaultRenderer(this.getColumnClass(i), new CT());
 		}
-	}
-
-	private class SelectionListener implements ListSelectionListener 
-	{
-		public void valueChanged(ListSelectionEvent e) 
-		{
-			if (e.getValueIsAdjusting()) 
-			{
-				return; // mouse button not released yet
-			}
-			int row = getSelectedRow();
-			if (row < 0) 
-			{
-				return; // true when clearSelection
-			}
-			System.out.println(row);
-			Media selMedia = getSelectedMedia(row);
-			System.out.println(selMedia);
-
-			clearSelection();
-		}
-	}
-
-	private Media getSelectedMedia(int row) 
-	{
-		Iterator<Media> it = media.iterator();
-		int index = 0;
-		while(it.hasNext()) 
-		{
-			Media current = it.next();
-			if(index == row) 
-			{
-				return current;
-			} 
-			else 
-			{
-				index++;
-			}
-		}
-		return null;
 	}
 
 	public static void main(String[] args) 

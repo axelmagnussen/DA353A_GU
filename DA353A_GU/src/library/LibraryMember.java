@@ -28,11 +28,11 @@ public class LibraryMember {
 	 * @param borrowedMedia
 	 *            Initial collection of borrowed media
 	 */
-	public LibraryMember(String id, String name, String phone, AVLTree<Date, Media> borrowedMedia) {
+	public LibraryMember(String id, String name, String phone) {
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
-		this.borrowedMedia = borrowedMedia;
+		this.borrowedMedia = new AVLTree<Date, Media>();
 	}
 
 	/**
@@ -96,6 +96,13 @@ public class LibraryMember {
 	 */
 	public String getPhone() {
 		return this.phone;
+	}
+	
+	/**
+	 * @return sorted data with borrowed media
+	 */
+	public AVLTree<Date, Media> getBorrowedMedia() {
+		return this.borrowedMedia;
 	}
 
 }

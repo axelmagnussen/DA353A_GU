@@ -10,15 +10,16 @@ public class LibraryApp {
 
 	public static void main(String[] args) {
 		lc = new LibraryController();
+		
+		frame = new JFrame();
 		showLoginPage();
 	}
 	
-	private static void showLoginPage() {
+	public static void showLoginPage() {
 		
-		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setContentPane(new LogInPage(lc));
-		frame.setSize(400, 190); // width, height
+		frame.setSize(430, 200); // width, height
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null); // centers window
 		frame.setResizable(false);	
@@ -29,7 +30,7 @@ public class LibraryApp {
 	public static void showUserPage() {
 		
 		frame.setContentPane(new UserPage(lc)); 
-		frame.setSize(400,200); 
+		frame.setSize(500,400); 
 		frame.setLocationRelativeTo(null);
 
 		frame.repaint();             

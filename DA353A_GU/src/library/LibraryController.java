@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 import media.Media;
 
 public class LibraryController {
+	
 	private Library library;
 	private LibraryMember currentUser;
 
@@ -14,13 +15,12 @@ public class LibraryController {
 		library = new Library("src/files/Lantagare.txt", "src/files/Media.txt");
 	}
 
-	public void setUserInput(String idNbr) {
+	public void logIn(String idNbr) {
 		if (library.memberExists(idNbr)) {
 			this.setCurrentUser(library.getMember(idNbr));
-
-			JOptionPane.showMessageDialog(null, "User does exist :)", "Info", JOptionPane.INFORMATION_MESSAGE);
 			LibraryApp.showUserPage();
-		} else {
+		} 
+		else {
 			JOptionPane.showMessageDialog(null, "User does not exist! Contact staff or try again.", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
@@ -34,15 +34,35 @@ public class LibraryController {
 		return this.currentUser;
 	}
 
-	public void borrow(int idNbr) {
-
-		Media media;
-		if((media = library.getMedia(idNbr)) != null) {
-			currentUser.put(new Date(), media);
+	public void borrow(int idNbr) 
+	{
+		if(library.idExists(idNbr)) 
+		{
+			Media media = library.getMedia(idNbr);
+			if(media.isBorrowed())
+			{
+				JOptionPane.showMessageDialog(null, "Media is already borrowed!", "Info",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+			else 
+			{
+				Date date = new Date();
+				media.setBorrowDate(date);
+				System.out.println(media);
+				System.out.println(date);
+				currentUser.put(date, media);
+				LibraryApp.showUserPage();
+			}
 		}
-		else {
+		else 
+		{
 			JOptionPane.showMessageDialog(null, "Entered id is not associated with a media!", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
+	}
+
+	public void logOut() {
+		LibraryApp.showLoginPage();
+		this.setCurrentUser(null);
 	}
 }

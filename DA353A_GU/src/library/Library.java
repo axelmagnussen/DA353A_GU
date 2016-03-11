@@ -49,7 +49,7 @@ public class Library {
 				name = parts[1];
 				phone = parts[2];
 
-				members.put(id, new LibraryMember(id, name, phone, null));
+				members.put(id, new LibraryMember(id, name, phone));
 				text = br.readLine();
 			}
 		} catch (IOException e) {
