@@ -33,6 +33,10 @@ public abstract class Media {
         return isBorrowed;
     }
 
+    public void setBorrowed(Boolean isBorrowed) {
+        this.isBorrowed = isBorrowed;
+    }
+
     public void setBorrowDate(Date borrowDate) {
         this.borrowDate = borrowDate;
     }
