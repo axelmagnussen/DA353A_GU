@@ -29,32 +29,32 @@ public class UserPage extends JPanel implements ActionListener {
 		setLayout(null);
 		
 		String message = libraryController.getCurrentUser().getName();
-		welcomeXlbl.setText("Welcome " + message);
+		welcomeXlbl.setText("Welcome " + message + "!");
 		welcomeXlbl.setFont(welcomeFont);
-		welcomeXlbl.setBounds(150, 20, 100, 25);
+		welcomeXlbl.setBounds(110, 20, 100, 25);
 		welcomeXlbl.setSize(400,20);
 		add(welcomeXlbl);
 		
 		txtFlbl.setFont(thisFont);
-		txtFlbl.setBounds(30,60,80,25);
-		txtFlbl.setSize(170,20);
+		txtFlbl.setBounds(100,70,80,25);
+		txtFlbl.setSize(60,20);
 		add(txtFlbl);
 		
-		mediaIDTxtF.setBounds(200,90,80,25);
+		mediaIDTxtF.setBounds(170,70,140,25);
 		add(mediaIDTxtF);
 		
-		borrowBtn.setBounds(20, 120, 80, 25);
-		borrowBtn.setSize(70, 30);
+		borrowBtn.setBounds(50, 120, 90, 25);
+		borrowBtn.setSize(90, 35);
 		add(borrowBtn);
 		borrowBtn.addActionListener(this);
 		
-		returnBtn.setBounds(120,120, 80, 25);
-		returnBtn.setSize(70, 30);
+		returnBtn.setBounds(160,120, 90, 35);
+		returnBtn.setSize(90, 35);
 		add(returnBtn);
 		returnBtn.addActionListener(this);
 				
-		signOutBtn.setBounds(200, 120, 80, 25);
-		signOutBtn.setSize(70, 30);
+		signOutBtn.setBounds(270, 120, 90, 35);
+		signOutBtn.setSize(90, 35);
 		add(signOutBtn);
 		signOutBtn.addActionListener(this);
 	}
@@ -63,5 +63,5 @@ public class UserPage extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		
-	}	
+	}
 }
