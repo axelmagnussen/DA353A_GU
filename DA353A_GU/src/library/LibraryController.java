@@ -30,7 +30,7 @@ public class LibraryController {
 		return this.currentUser;
 	}
 
-	public void search(int parseInt) {
+	public void borrow(int parseInt) {
 		System.out.println(parseInt);
 
 	}
