@@ -24,7 +24,7 @@ public class Library {
 
 	public static void readMembers(String filename) {
 		members = new AVLTree<String, LibraryMember>();
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"));) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 			String[] parts;
 			String text = br.readLine();
 
@@ -46,7 +46,7 @@ public class Library {
 
 	public static void readMedia(String filename) {
 		media = new HashtableOH<Integer, Media>(40);
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"));) {
+		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 			String[] parts;
 			String text = br.readLine();
 
