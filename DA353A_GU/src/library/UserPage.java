@@ -47,7 +47,7 @@ public class UserPage extends JPanel implements ActionListener {
 		borrowBtn.setSize(90, 35);
 		add(borrowBtn);
 		borrowBtn.addActionListener(e -> {
-			libraryController.search(Integer.parseInt(mediaIDTxtF.getText()));
+			libraryController.borrow(Integer.parseInt(mediaIDTxtF.getText()));
 		});
 
 		returnBtn.setBounds(160, 120, 90, 35);
