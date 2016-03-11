@@ -1,3 +1,5 @@
+package test;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
@@ -6,7 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-public class Test {
+public class Traktorpanna {
 
 	public static void main(String[] args) {
 		String[] dataBase = { "Traktor", "Traktörpanna", "Takbyggnad" };
@@ -41,6 +43,7 @@ public class Test {
 
 			@Override
 			public void changedUpdate(DocumentEvent e) {
+				// TODO Auto-generated method stub
 
 			}
 
