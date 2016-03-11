@@ -26,36 +26,36 @@ public class UserPage extends JPanel implements ActionListener {
 		
 		this.libraryController = libC;
 		
-		pnl.setLayout(null);
+		setLayout(null);
 		
 		String message = libraryController.getCurrentUser().getName();
 		welcomeXlbl.setText("Welcome " + message);
 		welcomeXlbl.setFont(welcomeFont);
 		welcomeXlbl.setBounds(150, 20, 100, 25);
 		welcomeXlbl.setSize(400,20);
-		pnl.add(welcomeXlbl);
+		add(welcomeXlbl);
 		
 		txtFlbl.setFont(thisFont);
 		txtFlbl.setBounds(30,60,80,25);
 		txtFlbl.setSize(170,20);
-		pnl.add(txtFlbl);
+		add(txtFlbl);
 		
 		mediaIDTxtF.setBounds(200,90,80,25);
-		pnl.add(mediaIDTxtF);
+		add(mediaIDTxtF);
 		
 		borrowBtn.setBounds(20, 120, 80, 25);
 		borrowBtn.setSize(70, 30);
-		pnl.add(borrowBtn);
+		add(borrowBtn);
 		borrowBtn.addActionListener(this);
 		
 		returnBtn.setBounds(120,120, 80, 25);
 		returnBtn.setSize(70, 30);
-		pnl.add(returnBtn);
+		add(returnBtn);
 		returnBtn.addActionListener(this);
 				
 		signOutBtn.setBounds(200, 120, 80, 25);
 		signOutBtn.setSize(70, 30);
-		pnl.add(signOutBtn);
+		add(signOutBtn);
 		signOutBtn.addActionListener(this);
 	}
 

@@ -26,7 +26,7 @@ public class LibraryApp {
 	public static void showUserPage() {
 		
 		frame.setContentPane(new UserPage(lc)); 
-		frame.setSize(800,600); 
+		frame.setSize(400,200); 
 		frame.setLocationRelativeTo(null);
 
 		frame.repaint();             
