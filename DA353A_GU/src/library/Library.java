@@ -16,7 +16,7 @@ public class Library
 	private static HashtableOH<Integer, Media> media;
 	private static AVLTree<String, LibraryMember> members;
 
-	public static boolean memberExists(String name, String idNbr) 
+	public static boolean memberExists(String idNbr) 
 	{
 		if(members.contains(idNbr))
 		{
@@ -44,7 +44,7 @@ public class Library
 				name = parts[1];
 				phone = parts[2];
 
-				members.put(id, new LibraryMember(id,name,phone));
+				members.put(id, new LibraryMember(id,name,phone, null));
 				text = br.readLine();
 			}
 			br.close();
