@@ -11,64 +11,65 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
-public class LogInPage extends JFrame implements ActionListener {
-	private JPanel thePanel = new JPanel();
+public class LogInPage extends JPanel implements ActionListener {
+
 	private JLabel welcomelbl = new JLabel("WELCOME!");
 	private JLabel label = new JLabel("Enter ID:");
 	private Font thisFont = new Font ("SansSerif", Font.PLAIN, 14);
 	public JTextField logInTxtF = new JTextField();
 	public JButton logInBtn = new JButton("Sign In");
-	
+
 	private LibraryController libraryController;
-	
+
 	//Konstruktor
 	public LogInPage(LibraryController lC) {
 
+		logInTxtF.setText("681102-9999");
 		this.libraryController = lC;
 
-		thePanel.setLayout(null);
+		this.setLayout(null);
 
 		//Welcome
 		welcomelbl.setFont(thisFont);
 		welcomelbl.setBounds(165, 20, 80, 25);
 		welcomelbl.setSize(400, 20);
-		thePanel.add(welcomelbl);
-		
+		this.add(welcomelbl);
+
 		//"Enter ID: "-texten
 		label.setFont(thisFont);
 		label.setBounds(90, 70, 80, 25);
 		label.setSize(170, 20);
-		thePanel.add(label);
-		
+		this.add(label);
+
 		//Textfält för att skriva in personnummer
 		logInTxtF.setBounds(150,70,160,25);
-		thePanel.add(logInTxtF);
-		
+		this.add(logInTxtF);
+
 		//Inloggnigsknapp
 		logInBtn.setBounds(220, 100, 80, 25);
 		logInBtn.setSize(90, 30);
-		thePanel.add(logInBtn);
-		
+		this.add(logInBtn);
+
 		logInBtn.addActionListener(this);
-		
+
 	}
 
-	
+
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == logInBtn) {
-		libraryController.setUserInput(logInTxtF.getText());
+			libraryController.setUserInput(logInTxtF.getText());
 		}
 	}
-	
-	
+
+
 	//Testsar
 	public static void main(String[] args) {
 		LibraryController lController = new LibraryController();
 		LogInPage logInP = new LogInPage(lController);
-		
+
 		JFrame frame = new JFrame("Login");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(logInP.thePanel);
+		frame.add(logInP);
 		frame.setSize(400, 190);
 		frame.setVisible(true);
 		frame.setLocation(500, 200);

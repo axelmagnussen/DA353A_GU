@@ -63,19 +63,5 @@ public class UserPage extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		
-	}
-	
-	public static void main(String[] args) {
-		LibraryController libContr = new LibraryController();
-		UserPage userP = new UserPage(libContr);
-		
-		JFrame frame = new JFrame("User Page");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(userP.pnl);
-		frame.setSize(400, 200);
-		frame.setVisible(true);
-		frame.setLocation(500,200);
-	}
-	
-
+	}	
 }
