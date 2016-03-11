@@ -33,6 +33,11 @@ public class Media {
 		return this.year;
 	}
 	
+	public void setBorrowed(boolean isBorrowed) 
+	{
+		this.isBorrowed = isBorrowed;
+	}
+	
 	public boolean isBorrowed() 
 	{
 		return isBorrowed; 
@@ -40,6 +45,7 @@ public class Media {
 	
 	public void setBorrowDate(Date borrowDate)
 	{
+		this.isBorrowed = true;
 		this.borrowDate = borrowDate;
 	}
 	
