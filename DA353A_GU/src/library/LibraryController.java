@@ -1,6 +1,10 @@
 package library;
 
+import java.util.Date;
+
 import javax.swing.JOptionPane;
+
+import media.Media;
 
 public class LibraryController {
 	private Library library;
@@ -30,8 +34,15 @@ public class LibraryController {
 		return this.currentUser;
 	}
 
-	public void borrow(int parseInt) {
-		System.out.println(parseInt);
+	public void borrow(int idNbr) {
 
+		Media media;
+		if((media = library.getMedia(idNbr)) != null) {
+			currentUser.put(new Date(), media);
+		}
+		else {
+			JOptionPane.showMessageDialog(null, "Entered id is not associated with a media!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }

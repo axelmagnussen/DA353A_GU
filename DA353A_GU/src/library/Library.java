@@ -105,4 +105,8 @@ public class Library {
 	public LibraryMember getMember(String idNbr) {
 		return members.get(idNbr);
 	}
+	
+	public Media getMedia(int idNbr) {
+		return media.get(idNbr);
+	}
 }
