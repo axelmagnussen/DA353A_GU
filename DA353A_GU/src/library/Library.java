@@ -12,17 +12,23 @@ import media.DVD;
 import media.Media;
 
 public class Library {
-	private static HashtableOH<Integer, Media> media;
-	private static AVLTree<String, LibraryMember> members;
+	
+	private HashtableOH<Integer, Media> media;
+	private AVLTree<String, LibraryMember> members;
 
-	public static boolean memberExists(String idNbr) {
+	public Library(String memberFile, String mediaFile) {
+		readMembers(memberFile);
+		readMedia(mediaFile);
+	}
+	
+	public boolean memberExists(String idNbr) {
 		if (members.contains(idNbr)) {
 			return true;
 		}
 		return false;
 	}
 
-	public static void readMembers(String filename) {
+	private void readMembers(String filename) {
 		members = new AVLTree<String, LibraryMember>();
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 			String[] parts;
@@ -44,7 +50,7 @@ public class Library {
 		}
 	}
 
-	public static void readMedia(String filename) {
+	public void readMedia(String filename) {
 		media = new HashtableOH<Integer, Media>(40);
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 			String[] parts;
@@ -81,11 +87,11 @@ public class Library {
 		}
 	}
 
-	public static HashtableOH<Integer, Media> getMedia() {
+	public HashtableOH<Integer, Media> getMedia() {
 		return media;
 	}
 
-	public static AVLTree<String, LibraryMember> getMembers() {
+	public AVLTree<String, LibraryMember> getMembers() {
 		return members;
 	}
 

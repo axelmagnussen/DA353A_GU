@@ -4,13 +4,14 @@ import javax.swing.JOptionPane;
 
 public class LibraryController 
 {
+	private Library library;
+
 	public LibraryController() {
-		Library.readMedia("src/files/Media.txt");
-		Library.readMembers("src/files/Lantagare.txt");
+		library = new Library("src/files/Lantagare.txt", "src/files/Media.txt");
 	}
 	
 	public void setUserInput(String idNbr) {
-		if(Library.memberExists(idNbr)) 
+		if(library.memberExists(idNbr)) 
 		{
 			JOptionPane.showMessageDialog(null, "User does exist :)", "Info", JOptionPane.INFORMATION_MESSAGE);
 			LibraryApp.showUserPage();
