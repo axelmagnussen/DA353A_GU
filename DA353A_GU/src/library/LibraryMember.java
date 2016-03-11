@@ -19,5 +19,9 @@ public class LibraryMember {
 		this.borrowedMedia = borrowedMedia;
 
 	}
+	
+	public String getName() {
+		return this.name;
+	}
 
 }
