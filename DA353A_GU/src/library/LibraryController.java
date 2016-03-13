@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
+import collections.HashtableOH;
 import media.Media;
 
 public class LibraryController {
@@ -76,6 +77,10 @@ public class LibraryController {
 			JOptionPane.showMessageDialog(null, "Entered id is not associated with a media!", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
+	}
+
+	public HashtableOH<Integer,Media> getAllMedia() {
+		return library.getMedia();
 	}
 
 

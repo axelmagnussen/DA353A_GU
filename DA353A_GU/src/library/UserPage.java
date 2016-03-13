@@ -8,7 +8,9 @@ import java.util.Date;
 import java.util.Iterator;
 
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -44,7 +46,7 @@ public class UserPage extends JPanel {
 	public JButton borrowBtn = new JButton("Borrow");
 	public JButton returnBtn = new JButton("Return");
 	public JButton signOutBtn = new JButton("Sign Out");
-	public JButton searchBtn = new JButton("Search");
+	public JButton listBtn = new JButton("Library Media");
 
 	private MediaTable mediaTable;
 
@@ -89,7 +91,7 @@ public class UserPage extends JPanel {
 		upperPanel.add(inputPanel);
 
 		// buttons...
-		borrowBtn.setPreferredSize(new Dimension(90, 35));
+		borrowBtn.setPreferredSize(new Dimension(120, 35));
 		borrowBtn.addActionListener(e -> {
 			try {
 				controller.borrow(Integer.parseInt(mediaIDTxtF.getText().trim()));
@@ -100,23 +102,24 @@ public class UserPage extends JPanel {
 			}
 		});
 
-		returnBtn.setPreferredSize(new Dimension(90, 35));
+		returnBtn.setPreferredSize(new Dimension(120, 35));
 		returnBtn.addActionListener(e -> {
 
 		});
 
-		signOutBtn.setPreferredSize(new Dimension(90, 35));
+		signOutBtn.setPreferredSize(new Dimension(120, 35));
 		signOutBtn.addActionListener(e -> {
 			controller.logOut();
 		});
 		
-		searchBtn.setPreferredSize(new Dimension(90, 35));
-		searchBtn.addActionListener(e -> {
+		listBtn.setPreferredSize(new Dimension(120, 35));
+		listBtn.addActionListener(e -> {
+			LibraryApp.showLibrary(controller.getAllMedia());
 
 		});
 
 		JPanel buttonPanel = new JPanel();
-		buttonPanel.add(searchBtn);
+		buttonPanel.add(listBtn);
 		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
 		buttonPanel.add(borrowBtn);
 		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
