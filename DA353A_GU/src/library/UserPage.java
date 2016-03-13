@@ -44,6 +44,7 @@ public class UserPage extends JPanel {
 	public JButton borrowBtn = new JButton("Borrow");
 	public JButton returnBtn = new JButton("Return");
 	public JButton signOutBtn = new JButton("Sign Out");
+	public JButton searchBtn = new JButton("Search");
 
 	private MediaTable mediaTable;
 
@@ -108,12 +109,19 @@ public class UserPage extends JPanel {
 		signOutBtn.addActionListener(e -> {
 			controller.logOut();
 		});
+		
+		searchBtn.setPreferredSize(new Dimension(90, 35));
+		searchBtn.addActionListener(e -> {
+
+		});
 
 		JPanel buttonPanel = new JPanel();
+		buttonPanel.add(searchBtn);
+		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
 		buttonPanel.add(borrowBtn);
-		buttonPanel.add(Box.createRigidArea(new Dimension(15,0)));
+		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
 		buttonPanel.add(returnBtn);
-		buttonPanel.add(Box.createRigidArea(new Dimension(15,0)));
+		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
 		buttonPanel.add(signOutBtn);
 
 		JPanel mainPanel = new JPanel(new GridLayout(2,1,0,20));
