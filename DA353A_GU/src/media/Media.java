@@ -97,14 +97,14 @@ public class Media {
 	 * @param obj
 	 * @return type
 	 */
-	public String getType(Media obj) 
+	public String getType() 
 	{
 		String type = "";
-		if(obj instanceof Book)
+		if(this instanceof Book)
 		{
 			type = "Book";
 		}
-		else if(obj instanceof DVD)
+		else if(this instanceof DVD)
 		{
 			type = "DVD";
 		}

@@ -45,9 +45,9 @@ public class LibraryApp {
 	public static void showUserPage() {
 		
 		frame.setContentPane(new UserPage(lc)); 
-		frame.setSize(600,400); 
+		frame.setSize(600,800); 
 		frame.setLocationRelativeTo(null);
-
+		
 		frame.repaint();            
 		frame.revalidate();          		
 	}
@@ -64,7 +64,7 @@ public class LibraryApp {
 		libFrame.setSize(550, 400); // width, height
 		libFrame.setVisible(true);
 		libFrame.setLocation(1280,315); // centers window
-		libFrame.setResizable(false);	
+		libFrame.setResizable(true);	
 		
 		libFrame.setIconImage(new ImageIcon("src/files/book.png").getImage());
 	}

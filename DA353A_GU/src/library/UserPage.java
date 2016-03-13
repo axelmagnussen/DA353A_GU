@@ -60,7 +60,7 @@ public class UserPage extends JPanel {
 
 		this.controller = libC;
 		currentUser = controller.getCurrentUser();
-		
+
 		mediaTable = new MediaTable(currentUser.getBorrowedMedia());
 
 		this.setLayout(new BorderLayout());
@@ -69,14 +69,11 @@ public class UserPage extends JPanel {
 		String message = controller.getCurrentUser().getName();
 		welcomeXlbl.setText("Welcome " + message + "!");
 		welcomeXlbl.setFont(welcomeFont);
-		welcomeXlbl.setBounds(110, 20, 100, 25);
 		welcomeXlbl.setSize(400, 20);
 
 		txtFlbl.setFont(thisFont);
-		txtFlbl.setBounds(100, 70, 80, 25);
 		txtFlbl.setSize(60, 20);
 
-		mediaIDTxtF.setBounds(170, 70, 140, 25);
 		mediaIDTxtF.setColumns(20);
 
 		JPanel inputPanel = new JPanel();
@@ -91,13 +88,19 @@ public class UserPage extends JPanel {
 		upperPanel.add(welcomeXlbl);
 		upperPanel.add(inputPanel);
 		upperPanel.add(infoPanel); //NYTT
-
-		// buttons...
-		infoBtn.setPreferredSize(new Dimension(540, 35)); //NYTT
-		infoBtn.addActionListener(e -> {	//NYTT ej klart
-			
-		});
 		
+		// buttons...
+		infoBtn.setPreferredSize(new Dimension(540, 35));
+		infoBtn.addActionListener(e -> {	
+			try {
+				controller.showDetailedInfo(Integer.parseInt(mediaIDTxtF.getText().trim()));
+			
+			} catch(NumberFormatException ex) {
+				JOptionPane.showMessageDialog(null, "Media-id must be a number!", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+		});
+
 		borrowBtn.setPreferredSize(new Dimension(120, 35));
 		borrowBtn.addActionListener(e -> {
 			try {
@@ -124,21 +127,14 @@ public class UserPage extends JPanel {
 		signOutBtn.addActionListener(e -> {
 			controller.logOut();
 		});
-		
+
 		listBtn.setPreferredSize(new Dimension(120, 35));
 		listBtn.addActionListener(e -> {
 			LibraryApp.showLibrary(controller.getAllMedia());
 
 		});
 
-		JPanel buttonPanel = new JPanel();
-		buttonPanel.add(listBtn);
-		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
-		buttonPanel.add(borrowBtn);
-		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
-		buttonPanel.add(returnBtn);
-		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
-		buttonPanel.add(signOutBtn);
+		JPanel buttonPanel = getButtonPanel();
 
 		JPanel mainPanel = new JPanel(new GridLayout(3,1,0,20));
 		mainPanel.add(upperPanel);
@@ -152,8 +148,22 @@ public class UserPage extends JPanel {
 		scroll = new JScrollPane(mediaTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		scroll.setPreferredSize(new Dimension(470, 100));
 		this.add(scroll, BorderLayout.SOUTH);
-
+		
 		mediaTable.getSelectionModel().addListSelectionListener(new SelectionListener());
+	}
+
+	private JPanel getButtonPanel() {
+		
+		JPanel buttonPanel = new JPanel();
+		buttonPanel.add(listBtn);
+		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
+		buttonPanel.add(borrowBtn);
+		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
+		buttonPanel.add(returnBtn);
+		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
+		buttonPanel.add(signOutBtn);
+		
+		return buttonPanel;
 	}
 
 	/**
@@ -176,7 +186,7 @@ public class UserPage extends JPanel {
 			System.out.println("Selected row: " + row);
 			Media selMedia = getSelectedMedia(row);
 			System.out.println("Selected media: " + selMedia);
-			
+
 			if(selMedia != null)
 			{
 				mediaIDTxtF.setText(selMedia.getId() + "");

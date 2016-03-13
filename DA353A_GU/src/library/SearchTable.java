@@ -59,7 +59,7 @@ public class SearchTable extends JTable {
 				Media next = medIt.next();
 				
 				// Append a row
-				model.addRow(new Object[] {next.getType(next), next.getId(), next.getTitle(), next.getYear(), next.isBorrowed()});
+				model.addRow(new Object[] {next.getType(), next.getId(), next.getTitle(), next.getYear(), next.isBorrowed()});
 			}
 		}
 		

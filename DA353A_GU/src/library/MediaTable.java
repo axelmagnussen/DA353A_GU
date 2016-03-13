@@ -66,7 +66,7 @@ public class MediaTable extends JTable {
 				Media next = it.next();
 				
 				// Append a row
-				model.addRow(new Object[] {sdf.format(next.getBorrowDate()), next.getType(next), next.getId(), next.getTitle(), next.getYear()});
+				model.addRow(new Object[] {sdf.format(next.getBorrowDate()), next.getType(), next.getId(), next.getTitle(), next.getYear()});
 			}
 		}
 		

@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.swing.JOptionPane;
 
 import collections.HashtableOH;
+import media.Book;
+import media.DVD;
 import media.Media;
 
 /**
@@ -105,5 +107,26 @@ public class LibraryController {
 
 	public HashtableOH<Integer,Media> getAllMedia() {
 		return library.getMedia();
+	}
+
+	public void showDetailedInfo(int idNbr) {
+		if(library.idExists(idNbr)) 
+		{
+			Media media = library.getMedia(idNbr);
+			if(media.getType().equals("Book")) {
+				Book book = (Book) media;
+				JOptionPane.showMessageDialog(null, book.toString(), "Info", JOptionPane.INFORMATION_MESSAGE);
+			}
+			else {
+				DVD dvd = (DVD) media;
+				JOptionPane.showMessageDialog(null, dvd.toString(), "Info", JOptionPane.INFORMATION_MESSAGE);
+			}
+			
+		}
+		else 
+		{
+			JOptionPane.showMessageDialog(null, "Entered id is not associated with a media!", "Error",
+					JOptionPane.ERROR_MESSAGE);
+		}
 	}
 }
