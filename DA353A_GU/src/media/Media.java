@@ -54,6 +54,20 @@ public class Media {
 		return this.borrowDate;
 	}
 	
+	public String getType(Media obj) 
+	{
+		String type = "";
+		if(obj instanceof Book)
+		{
+			type = "Book";
+		}
+		else if(obj instanceof DVD)
+		{
+			type = "DVD";
+		}
+		return type;
+	}
+	
 	@Override
 	public String toString() 
 	{

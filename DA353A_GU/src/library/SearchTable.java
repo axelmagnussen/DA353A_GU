@@ -36,15 +36,17 @@ public class SearchTable extends JTable {
 		DefaultTableModel model = (DefaultTableModel) getModel();
 
 		// Create a couple of columns
+		model.addColumn("Type");
 		model.addColumn("ID");
 		model.addColumn("Title");
 		model.addColumn("Year");
 		model.addColumn("Borrowed?");
 		
 		this.getColumnModel().getColumn(0).setPreferredWidth(1);
-		this.getColumnModel().getColumn(1).setPreferredWidth(250);
-		this.getColumnModel().getColumn(2).setPreferredWidth(1);
+		this.getColumnModel().getColumn(1).setPreferredWidth(1);
+		this.getColumnModel().getColumn(2).setPreferredWidth(250);
 		this.getColumnModel().getColumn(3).setPreferredWidth(1);
+		this.getColumnModel().getColumn(4).setPreferredWidth(1);
 
 		if(media != null)
 		{
@@ -53,7 +55,7 @@ public class SearchTable extends JTable {
 				Media next = medIt.next();
 				
 				// Append a row
-				model.addRow(new Object[] {next.getId(), next.getTitle(), next.getYear(), next.isBorrowed()});
+				model.addRow(new Object[] {next.getType(next), next.getId(), next.getTitle(), next.getYear(), next.isBorrowed()});
 			}
 		}
 		
