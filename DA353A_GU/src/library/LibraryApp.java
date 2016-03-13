@@ -45,7 +45,7 @@ public class LibraryApp {
 		JFrame libFrame = new JFrame("Library");
 		libFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		libFrame.setContentPane(new JScrollPane (new SearchTable(allMedia)));
-		libFrame.setSize(500, 400); // width, height
+		libFrame.setSize(550, 400); // width, height
 		libFrame.setVisible(true);
 		libFrame.setLocation(1280,315); // centers window
 		libFrame.setResizable(false);	

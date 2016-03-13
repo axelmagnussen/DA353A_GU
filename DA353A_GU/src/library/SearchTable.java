@@ -39,17 +39,21 @@ public class SearchTable extends JTable {
 		model.addColumn("ID");
 		model.addColumn("Title");
 		model.addColumn("Year");
+		model.addColumn("Borrowed?");
+		
+		this.getColumnModel().getColumn(0).setPreferredWidth(1);
+		this.getColumnModel().getColumn(1).setPreferredWidth(250);
+		this.getColumnModel().getColumn(2).setPreferredWidth(1);
+		this.getColumnModel().getColumn(3).setPreferredWidth(1);
 
 		if(media != null)
 		{
-			Iterator<Integer> intIt = media.keys();
-
 			Iterator<Media> medIt = media.values();
 			while (medIt.hasNext()) {
 				Media next = medIt.next();
 				
 				// Append a row
-				model.addRow(new Object[] {intIt.next(), next.getId(), next.getTitle(), next.getYear()});
+				model.addRow(new Object[] {next.getId(), next.getTitle(), next.getYear(), next.isBorrowed()});
 			}
 		}
 		
