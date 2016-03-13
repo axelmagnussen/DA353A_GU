@@ -2,6 +2,12 @@ package media;
 
 import java.util.Date;
 
+/**
+ * This class represents a Media object
+ * @author Ninjakids
+ * 
+ *
+ */
 public class Media {
 	
 	private int id;
@@ -9,7 +15,13 @@ public class Media {
 	private int year;
 	private String title;
 	private Date borrowDate;
-
+/**
+ * This is a constructor
+ * @param id
+ * @param title
+ * @param year
+ * @param isBorrowed
+ */
 	public Media(int id, String title, int year, boolean isBorrowed) 
 	{
 		this.id = id;
@@ -17,43 +29,68 @@ public class Media {
 		this.year = year;
 		this.isBorrowed = isBorrowed;
 	}
-	
+	/**
+	 * Gets id
+	 * @return id
+	 */
 	public int getId() 
 	{
 		return this.id;
 	}
-	
+	/**
+	 * Gets Title
+	 * @return Title
+	 */
 	public String getTitle() 
 	{
 		return this.title;
 	}
-	
+	/**
+	 * Gets title
+	 * @return year
+	 */
 	public int getYear()
 	{
 		return this.year;
 	}
-	
+	/**
+	 * Set borrowed to isBorrowed
+	 * @param isBorrowed
+	 */
 	public void setBorrowed(boolean isBorrowed) 
 	{
 		this.isBorrowed = isBorrowed;
 	}
-	
+	/**
+	 * returns isBorrowed
+	 * @return isBorrowed
+	 */
 	public boolean isBorrowed() 
 	{
 		return isBorrowed; 
 	}
-	
+	/**
+	 * Sets isBorrowed to true and sets borrowDate to borrowDate
+	 * @param borrowDate
+	 */
 	public void setBorrowDate(Date borrowDate)
 	{
 		this.isBorrowed = true;
 		this.borrowDate = borrowDate;
 	}
-	
+	/**
+	 * reutn borrowDate
+	 * @return borrowDate
+	 */
 	public Date getBorrowDate()
 	{
 		return this.borrowDate;
 	}
-	
+	/**
+	 * Checks if book is book and if dvd is dvd
+	 * @param obj
+	 * @return type
+	 */
 	public String getType(Media obj) 
 	{
 		String type = "";
@@ -67,7 +104,9 @@ public class Media {
 		}
 		return type;
 	}
-	
+	/**
+	 * Returns a appropirate string
+	 */
 	@Override
 	public String toString() 
 	{
