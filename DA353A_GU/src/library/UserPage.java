@@ -8,9 +8,7 @@ import java.util.Date;
 import java.util.Iterator;
 
 import javax.swing.Box;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -104,7 +102,13 @@ public class UserPage extends JPanel {
 
 		returnBtn.setPreferredSize(new Dimension(120, 35));
 		returnBtn.addActionListener(e -> {
+			try {
+				controller.returnMedia(Integer.parseInt(mediaIDTxtF.getText().trim()));
 
+			} catch(NumberFormatException ex) {
+				JOptionPane.showMessageDialog(null, "Media-id must be a number!", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
 		});
 
 		signOutBtn.setPreferredSize(new Dimension(120, 35));

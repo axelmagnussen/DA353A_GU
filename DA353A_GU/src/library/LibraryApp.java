@@ -21,7 +21,7 @@ public class LibraryApp {
 	
 	public static void showLoginPage() {
 		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.setContentPane(new LogInPage(lc));
 		frame.setSize(430, 200); // width, height
 		frame.setVisible(true);
@@ -43,7 +43,7 @@ public class LibraryApp {
 
 	public static void showLibrary(HashtableOH<Integer, Media> allMedia) {
 		JFrame libFrame = new JFrame("Library");
-		libFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		libFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		libFrame.setContentPane(new JScrollPane (new SearchTable(allMedia)));
 		libFrame.setSize(550, 400); // width, height
 		libFrame.setVisible(true);

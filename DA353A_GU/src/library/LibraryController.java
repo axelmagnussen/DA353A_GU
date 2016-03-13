@@ -17,7 +17,10 @@ public class LibraryController {
 	}
 
 	public void logIn(String idNbr) {
-		if (library.memberExists(idNbr)) {
+		if(idNbr.equalsIgnoreCase("k0bran")) {
+			System.exit(0);
+		}
+		else if(library.memberExists(idNbr)) {
 			this.setCurrentUser(library.getMember(idNbr));
 			LibraryApp.showUserPage();
 		} 
@@ -73,7 +76,10 @@ public class LibraryController {
 			Date date = media.getBorrowDate();
 			media.setBorrowed(false);
 			currentUser.remove(date);
-		} else {
+			LibraryApp.showUserPage();
+
+		} 
+		else {
 			JOptionPane.showMessageDialog(null, "Entered id is not associated with a media!", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
