@@ -80,7 +80,7 @@ public class UserPage extends JPanel {
 		inputPanel.add(txtFlbl);
 		inputPanel.add(Box.createRigidArea(new Dimension(25,0))); // Adds empty space in inputPanel
 		inputPanel.add(mediaIDTxtF);
-		
+
 		JPanel infoPanel = new JPanel();
 		infoPanel.add(infoBtn); //NYTT
 
@@ -88,13 +88,36 @@ public class UserPage extends JPanel {
 		upperPanel.add(welcomeXlbl);
 		upperPanel.add(inputPanel);
 		upperPanel.add(infoPanel); //NYTT
+
+		this.addButtonListeners(); // layout + button listeners
 		
-		// buttons...
+		this.add(upperPanel, BorderLayout.NORTH);
+		
+		borrowedlbl.setFont(boldFont);
+		
+		scroll = new JScrollPane(mediaTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		scroll.setPreferredSize(new Dimension(540, 100));
+		
+		JPanel btnPanel = getButtonPanel();
+		btnPanel.setBorder(new EmptyBorder(0,0,20,0));
+		
+		JPanel centerPanel = new JPanel();
+		centerPanel.add(btnPanel);
+		centerPanel.add(borrowedlbl);
+		centerPanel.add(scroll);
+		
+		this.add(centerPanel, BorderLayout.CENTER);
+		
+		mediaTable.getSelectionModel().addListSelectionListener(new SelectionListener());
+	}
+
+	private void addButtonListeners() {
+
 		infoBtn.setPreferredSize(new Dimension(540, 35));
 		infoBtn.addActionListener(e -> {	
 			try {
 				controller.showDetailedInfo(Integer.parseInt(mediaIDTxtF.getText().trim()));
-			
+
 			} catch(NumberFormatException ex) {
 				JOptionPane.showMessageDialog(null, "Media-id must be a number!", "Error",
 						JOptionPane.ERROR_MESSAGE);
@@ -133,27 +156,10 @@ public class UserPage extends JPanel {
 			LibraryApp.showLibrary(controller.getAllMedia());
 
 		});
-
-		JPanel buttonPanel = getButtonPanel();
-
-		JPanel mainPanel = new JPanel(new GridLayout(3,1,0,20));
-		mainPanel.add(upperPanel);
-		mainPanel.add(buttonPanel);
-
-		this.add(mainPanel, BorderLayout.NORTH);
-
-		borrowedlbl.setFont(boldFont);
-		this.add(borrowedlbl, BorderLayout.WEST);
-
-		scroll = new JScrollPane(mediaTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		scroll.setPreferredSize(new Dimension(470, 100));
-		this.add(scroll, BorderLayout.SOUTH);
-		
-		mediaTable.getSelectionModel().addListSelectionListener(new SelectionListener());
 	}
 
 	private JPanel getButtonPanel() {
-		
+
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.add(listBtn);
 		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
@@ -162,7 +168,7 @@ public class UserPage extends JPanel {
 		buttonPanel.add(returnBtn);
 		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
 		buttonPanel.add(signOutBtn);
-		
+
 		return buttonPanel;
 	}
 
