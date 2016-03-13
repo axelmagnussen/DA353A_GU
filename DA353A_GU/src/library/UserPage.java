@@ -40,6 +40,7 @@ public class UserPage extends JPanel {
 
 	public JTextField mediaIDTxtF = new JTextField();
 
+	public JButton infoBtn = new JButton("Show Detailed Information"); //NYTT
 	public JButton borrowBtn = new JButton("Borrow");
 	public JButton returnBtn = new JButton("Return");
 	public JButton signOutBtn = new JButton("Sign Out");
@@ -82,12 +83,21 @@ public class UserPage extends JPanel {
 		inputPanel.add(txtFlbl);
 		inputPanel.add(Box.createRigidArea(new Dimension(25,0))); // Adds empty space in inputPanel
 		inputPanel.add(mediaIDTxtF);
+		
+		JPanel infoPanel = new JPanel();
+		infoPanel.add(infoBtn); //NYTT
 
-		JPanel upperPanel = new JPanel(new GridLayout(2,1,0,20));
+		JPanel upperPanel = new JPanel(new GridLayout(3,1,0,20));
 		upperPanel.add(welcomeXlbl);
 		upperPanel.add(inputPanel);
+		upperPanel.add(infoPanel); //NYTT
 
 		// buttons...
+		infoBtn.setPreferredSize(new Dimension(540, 35)); //NYTT
+		infoBtn.addActionListener(e -> {	//NYTT ej klart
+			
+		});
+		
 		borrowBtn.setPreferredSize(new Dimension(120, 35));
 		borrowBtn.addActionListener(e -> {
 			try {
@@ -130,7 +140,7 @@ public class UserPage extends JPanel {
 		buttonPanel.add(Box.createRigidArea(new Dimension(10,0)));
 		buttonPanel.add(signOutBtn);
 
-		JPanel mainPanel = new JPanel(new GridLayout(2,1,0,20));
+		JPanel mainPanel = new JPanel(new GridLayout(3,1,0,20));
 		mainPanel.add(upperPanel);
 		mainPanel.add(buttonPanel);
 
