@@ -8,7 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
+/**
+ * 
+ * The class LogInPage creates a window for memebers to use when loging in to the libary
+ * 
+ * @author Ninjakids
+ * 
+ *
+ */
 @SuppressWarnings("serial")
 public class LogInPage extends JPanel implements ActionListener {
 
@@ -20,7 +27,10 @@ public class LogInPage extends JPanel implements ActionListener {
 
 	private LibraryController libraryController;
 
-	// Constructor
+	/**
+	 * This is a constructor in which the textfield, button and labels are created and added
+	 * @param lC
+	 */
 	public LogInPage(LibraryController lC) {
 
 		logInTxtF.setText("681102-9999");
@@ -52,6 +62,9 @@ public class LogInPage extends JPanel implements ActionListener {
 		logInBtn.addActionListener(this);
 	}
 
+	/**
+	 * This is a public method that logs in the user if he is a library member
+	 */
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == logInBtn) {
 			libraryController.logIn(logInTxtF.getText().trim());
