@@ -104,5 +104,32 @@ public class LibraryMember {
 	public AVLTree<Date, Media> getBorrowedMedia() {
 		return this.borrowedMedia;
 	}
+	
+	/**
+	 * Returns true if obj exists in LibraryMember's list
+	 * of borrowed media.
+	 * @param obj
+	 * @return true if obj exists in borrowed media
+	 */
+	public boolean hasMedia(Media obj) {
+		Iterator<Media> it = iterator();
+		while(it.hasNext()) {
+			if(it.next().equals(obj)) {
+				return true;
+			}
+		}
+		return false;
+	}
 
+	/**
+	 * @return return true if two IDs match
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		Media oM = (Media) obj;
+		if(this.id.equals(oM.getId())) {
+			return true;
+		}
+		return false;
+	}
 }

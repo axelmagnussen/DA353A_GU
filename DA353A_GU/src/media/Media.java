@@ -5,23 +5,22 @@ import java.util.Date;
 /**
  * This class represents a Media object
  * @author Ninjakids
- * 
- *
  */
 public class Media {
-	
+
 	private int id;
 	private boolean isBorrowed;
 	private int year;
 	private String title;
 	private Date borrowDate;
-/**
- * This is a constructor
- * @param id
- * @param title
- * @param year
- * @param isBorrowed
- */
+	
+	/**
+	 * This is a constructor
+	 * @param id
+	 * @param title
+	 * @param year
+	 * @param isBorrowed
+	 */
 	public Media(int id, String title, int year, boolean isBorrowed) 
 	{
 		this.id = id;
@@ -37,30 +36,34 @@ public class Media {
 	{
 		return this.id;
 	}
+	
 	/**
-	 * Gets Title
+	 * Gets title
 	 * @return Title
 	 */
 	public String getTitle() 
 	{
 		return this.title;
 	}
+	
 	/**
-	 * Gets title
+	 * Gets year
 	 * @return year
 	 */
 	public int getYear()
 	{
 		return this.year;
 	}
+	
 	/**
-	 * Set borrowed to isBorrowed
+	 * Sets borrowed to isBorrowed
 	 * @param isBorrowed
 	 */
 	public void setBorrowed(boolean isBorrowed) 
 	{
 		this.isBorrowed = isBorrowed;
 	}
+	
 	/**
 	 * returns isBorrowed
 	 * @return isBorrowed
@@ -69,6 +72,7 @@ public class Media {
 	{
 		return isBorrowed; 
 	}
+	
 	/**
 	 * Sets isBorrowed to true and sets borrowDate to borrowDate
 	 * @param borrowDate
@@ -78,6 +82,7 @@ public class Media {
 		this.isBorrowed = true;
 		this.borrowDate = borrowDate;
 	}
+	
 	/**
 	 * reutn borrowDate
 	 * @return borrowDate
@@ -86,6 +91,7 @@ public class Media {
 	{
 		return this.borrowDate;
 	}
+	
 	/**
 	 * Checks if book is book and if dvd is dvd
 	 * @param obj
@@ -104,8 +110,10 @@ public class Media {
 		}
 		return type;
 	}
+	
 	/**
-	 * Returns a appropirate string
+	 * Returns a appropriate string of a media object.
+	 * @return string
 	 */
 	@Override
 	public String toString() 

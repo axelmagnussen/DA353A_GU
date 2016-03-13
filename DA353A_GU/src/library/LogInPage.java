@@ -10,12 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 /**
  * 
- * The class LogInPage creates a window for memebers to use when loging in to the libary
+ * The class LogInPage creates a window for members to use when logging in to the library.
  * 
  * @author Ninjakids
- * 
- *
- */
+ */ 
 @SuppressWarnings("serial")
 public class LogInPage extends JPanel implements ActionListener {
 

@@ -23,8 +23,7 @@ import media.Media;
 
 /**
  * 
- * @author 
- *
+ * @author Ninjakids
  */
 @SuppressWarnings("serial")
 public class UserPage extends JPanel {
@@ -149,8 +148,7 @@ public class UserPage extends JPanel {
 
 	/**
 	 * 
-	 * @author 
-	 *
+	 * @author Ninjakids
 	 */
 	private class SelectionListener implements ListSelectionListener 
 	{

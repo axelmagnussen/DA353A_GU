@@ -7,6 +7,11 @@ import javax.swing.JScrollPane;
 import collections.HashtableOH;
 import media.Media;
 
+/**
+ * 
+ * @author Ninjakids
+ *
+ */
 public class LibraryApp {
 
 	private static JFrame frame;
@@ -19,6 +24,9 @@ public class LibraryApp {
 		showLoginPage();
 	}
 	
+	/**
+	 * 
+	 */
 	public static void showLoginPage() {
 		
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -31,17 +39,25 @@ public class LibraryApp {
 		frame.setIconImage(new ImageIcon("src/files/book.png").getImage());
 	}
 
+	/**
+	 * 
+	 */
 	public static void showUserPage() {
 		
 		frame.setContentPane(new UserPage(lc)); 
 		frame.setSize(600,400); 
 		frame.setLocationRelativeTo(null);
 
-		frame.repaint();             
+		frame.repaint();            
 		frame.revalidate();          		
 	}
 
+	/**
+	 * 
+	 * @param allMedia
+	 */
 	public static void showLibrary(HashtableOH<Integer, Media> allMedia) {
+		
 		JFrame libFrame = new JFrame("Library");
 		libFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		libFrame.setContentPane(new JScrollPane (new SearchTable(allMedia)));

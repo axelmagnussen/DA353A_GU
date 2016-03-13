@@ -7,6 +7,11 @@ import javax.swing.JOptionPane;
 import collections.HashtableOH;
 import media.Media;
 
+/**
+ * 
+ * @author Ninjakids
+ *
+ */
 public class LibraryController {
 
 	private Library library;
@@ -71,15 +76,28 @@ public class LibraryController {
 	}
 
 	public void returnMedia(int idNbr) {
-		Media media;
-		if ((media = library.getMedia(idNbr)) != null) {
-			Date date = media.getBorrowDate();
-			media.setBorrowed(false);
-			currentUser.remove(date);
-			LibraryApp.showUserPage();
-
-		} 
-		else {
+		
+		if(library.idExists(idNbr)) 
+		{
+			Media media = library.getMedia(idNbr);
+			if(!media.isBorrowed()) {
+				JOptionPane.showMessageDialog(null, "Media is not even borrowed!", "Info",
+						JOptionPane.INFORMATION_MESSAGE);
+			}
+			else if(!currentUser.hasMedia(media)) {
+				JOptionPane.showMessageDialog(null, "Media is not even yours!", "Error",
+						JOptionPane.ERROR_MESSAGE);
+			}
+			else 
+			{
+				Date date = media.getBorrowDate();
+				media.setBorrowed(false);
+				currentUser.remove(date);
+				LibraryApp.showUserPage();
+			}
+		}
+		else 
+		{
 			JOptionPane.showMessageDialog(null, "Entered id is not associated with a media!", "Error",
 					JOptionPane.ERROR_MESSAGE);
 		}
@@ -88,6 +106,4 @@ public class LibraryController {
 	public HashtableOH<Integer,Media> getAllMedia() {
 		return library.getMedia();
 	}
-
-
 }

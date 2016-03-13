@@ -12,17 +12,21 @@ import javax.swing.table.DefaultTableModel;
 import collections.HashtableOH;
 import media.Media;
 
+/**
+ * This class represents a table (JTable) with media-objects in it.
+ * @author Ninjakids
+ */
 @SuppressWarnings("serial")
 public class SearchTable extends JTable {
 	
-	@SuppressWarnings("unused")
-	private HashtableOH<Integer, Media> media;
-
 	private Font font = new Font("Segoe UI", Font.PLAIN, 16);
 
+	/**
+	 * 
+	 * @param media
+	 */
 	public SearchTable(HashtableOH<Integer, Media> media) 
 	{
-		this.media = media;
 		this.setFont(font);
 		
 		this.setModel(new DefaultTableModel() 
@@ -62,6 +66,10 @@ public class SearchTable extends JTable {
 		this.setFocusable(false);
 		this.setRowSelectionAllowed(true);
 
+		/**
+		 * This class is used for changing color in the JTable.
+		 * @author Ninjakids
+		 */
 		class CT extends DefaultTableCellRenderer 
 		{
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
@@ -82,7 +90,5 @@ public class SearchTable extends JTable {
 		{
 			this.setDefaultRenderer(this.getColumnClass(i), new CT());
 		}
-		
 	}
 }
-
