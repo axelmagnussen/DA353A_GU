@@ -14,7 +14,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 import collections.AVLTree;
-import collections.ArrayList;
 import media.Book;
 import media.Media;
 
@@ -49,21 +48,25 @@ public class MediaTable extends JTable {
 
 		// Create a couple of columns
 		model.addColumn("Loan-Date");
+		model.addColumn("Type");
 		model.addColumn("ID");
 		model.addColumn("Title");
 		model.addColumn("Year");
+		
+		this.getColumnModel().getColumn(0).setPreferredWidth(110);
+		this.getColumnModel().getColumn(1).setPreferredWidth(10);
+		this.getColumnModel().getColumn(2).setPreferredWidth(30);
+		this.getColumnModel().getColumn(3).setPreferredWidth(110);
+		this.getColumnModel().getColumn(4).setPreferredWidth(30);
 
 		if(media != null)
 		{
-			ArrayList<Date> al = (ArrayList<Date>) media.keys();
-			Iterator<Date> alit = al.iterator();
-
 			Iterator<Media> it = media.iterator();
 			while (it.hasNext()) {
 				Media next = it.next();
 				
 				// Append a row
-				model.addRow(new Object[] {sdf.format(alit.next()), next.getId(), next.getTitle(), next.getYear()});
+				model.addRow(new Object[] {sdf.format(next.getBorrowDate()), next.getType(next), next.getId(), next.getTitle(), next.getYear()});
 			}
 		}
 		
