@@ -24,6 +24,7 @@ import media.Media;
 /**
  * 
  * @author Ninjakids
+ * @since 2016-03-13
  */
 @SuppressWarnings("serial")
 public class UserPage extends JPanel {
@@ -154,7 +155,6 @@ public class UserPage extends JPanel {
 		listBtn.setPreferredSize(new Dimension(120, 35));
 		listBtn.addActionListener(e -> {
 			LibraryApp.showLibrary(controller.getAllMedia());
-
 		});
 	}
 
@@ -175,6 +175,7 @@ public class UserPage extends JPanel {
 	/**
 	 * 
 	 * @author Ninjakids
+	 * @since 2016-03-13
 	 */
 	private class SelectionListener implements ListSelectionListener 
 	{

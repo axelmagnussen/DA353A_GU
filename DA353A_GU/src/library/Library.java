@@ -11,16 +11,38 @@ import media.Book;
 import media.DVD;
 import media.Media;
 
+/**
+ * This class represents a library with media objects and library members. 
+ * The media and the members are stored in two text-files, one for members 
+ * and one for media objects.
+ * 
+ * The data-structures used for the library is an AVLTree for storing
+ * library members and a HashtableOH for storing media objects. 
+ * 
+ * @author Ninjakids
+ * @since 2016-03-13
+ */
 public class Library {
 	
 	private HashtableOH<Integer, Media> media;
 	private AVLTree<String, LibraryMember> members;
 
+	/**
+	 * Constructor that initializes the main library with members and media
+	 * objects.
+	 * @param memberFile
+	 * @param mediaFile
+	 */
 	public Library(String memberFile, String mediaFile) {
 		readMembers(memberFile);
 		readMedia(mediaFile);
 	}
 	
+	/**
+	 * Returns true if a member's idNbr can be found in the library.
+	 * @param idNbr
+	 * @return false if idNbr could not be found
+	 */
 	public boolean memberExists(String idNbr) {
 		if (members.contains(idNbr)) {
 			return true;
@@ -28,6 +50,12 @@ public class Library {
 		return false;
 	}
 	
+	/**
+	 * Returns true if idNbr could be found in the library (in the 
+	 * HashtableOH).
+	 * @param idNbr
+	 * @return false if idNbr could not be found
+	 */
 	public boolean idExists(int idNbr) {
 		if(media.containsKey(idNbr)) {
 			return true;
@@ -35,7 +63,13 @@ public class Library {
 		return false;
 	}
 
+	/**
+	 * Method that reads the file filename and stores the data (the members)
+	 * in a data-structure called AVLTree.
+	 * @param filename to be read
+	 */
 	private void readMembers(String filename) {
+		
 		members = new AVLTree<String, LibraryMember>();
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 			String[] parts;
@@ -57,7 +91,13 @@ public class Library {
 		}
 	}
 
+	/**
+	 * Method that reads the file filename and stores the data (the medias)
+	 * in a data-structure called HashtableOH.
+	 * @param filename to be read
+	 */
 	public void readMedia(String filename) {
+		
 		media = new HashtableOH<Integer, Media>(40);
 		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
 			String[] parts;
@@ -94,18 +134,36 @@ public class Library {
 		}
 	}
 
+	/**
+	 * Returns the HashtableOH with media.
+	 * @return a hashtable with media
+	 */
 	public HashtableOH<Integer, Media> getMedia() {
 		return media;
 	}
 
+	/**
+	 * Returns the AVLTree with members.
+	 * @return an AVLTree with members
+	 */
 	public AVLTree<String, LibraryMember> getMembers() {
 		return members;
 	}
 
+	/**
+	 * Return the member associated with idNbr.
+	 * @param idNbr
+	 * @return null if idNbr could not be found
+	 */
 	public LibraryMember getMember(String idNbr) {
 		return members.get(idNbr);
 	}
 	
+	/**
+	 * Return the media object associated with idNbr.
+	 * @param idNbr
+	 * @return null if idNbr could not be found
+	 */
 	public Media getMedia(int idNbr) {
 		return media.get(idNbr);
 	}
