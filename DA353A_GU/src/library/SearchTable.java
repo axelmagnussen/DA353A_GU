@@ -23,13 +23,14 @@ public class SearchTable extends JTable {
 	private Font font = new Font("Segoe UI", Font.PLAIN, 16);
 
 	/**
-	 * 
+	 * Constructor that initiates a JTable with five columns.
 	 * @param media
 	 */
 	public SearchTable(HashtableOH<Integer, Media> media) 
 	{
 		this.setFont(font);
 		
+		// Makes sure that user cannot edit values in the JTable
 		this.setModel(new DefaultTableModel() 
 		{
 			@Override
@@ -47,28 +48,31 @@ public class SearchTable extends JTable {
 		model.addColumn("Year");
 		model.addColumn("Borrowed?");
 		
+		// Sets widths of the various columns
 		this.getColumnModel().getColumn(0).setPreferredWidth(1);
 		this.getColumnModel().getColumn(1).setPreferredWidth(1);
 		this.getColumnModel().getColumn(2).setPreferredWidth(250);
 		this.getColumnModel().getColumn(3).setPreferredWidth(1);
 		this.getColumnModel().getColumn(4).setPreferredWidth(1);
 
+		// Creates rows with data in them and adds them to the JTable
 		if(media != null)
 		{
 			Iterator<Media> medIt = media.values();
 			while (medIt.hasNext()) {
 				Media next = medIt.next();
 				
-				// Append a row
+				// Appends a row
 				model.addRow(new Object[] {next.getType(), next.getId(), next.getTitle(), next.getYear(), next.isBorrowed()});
 			}
 		}
 		
 		this.setFocusable(false);
-		this.setRowSelectionAllowed(true);
+		this.setRowSelectionAllowed(true); // Rows -> click-able
 
 		/**
-		 * This class is used for changing color in the JTable.
+		 * This class is used for changing color in the JTable (only way
+		 * to change a JTable's rows and columns' color).
 		 * @author Ninjakids
 		 * @since 2016-03-13
 		 */
@@ -88,8 +92,8 @@ public class SearchTable extends JTable {
 			}
 		}
 
-		for(int i = 0; i < model.getColumnCount(); ++i) 
-		{
+		// Adds the coloring option to each column
+		for(int i = 0; i < model.getColumnCount(); ++i) {
 			this.setDefaultRenderer(this.getColumnClass(i), new CT());
 		}
 	}
