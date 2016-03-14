@@ -15,6 +15,7 @@ import media.Media;
 /**
  * This class represents a table (JTable) with media-objects in it.
  * @author Ninjakids
+ * @since 2016-03-13
  */
 @SuppressWarnings("serial")
 public class SearchTable extends JTable {
@@ -69,13 +70,14 @@ public class SearchTable extends JTable {
 		/**
 		 * This class is used for changing color in the JTable.
 		 * @author Ninjakids
+		 * @since 2016-03-13
 		 */
 		class CT extends DefaultTableCellRenderer 
 		{
 			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
 					boolean hasFocus, int row, int column) {
 
-				if (row%3 == 0) {
+				if(row%3 == 0) {
 					setBackground(new Color(249, 255, 229));
 				}
 				else {
@@ -86,7 +88,7 @@ public class SearchTable extends JTable {
 			}
 		}
 
-		for (int i = 0; i < model.getColumnCount(); ++i) 
+		for(int i = 0; i < model.getColumnCount(); ++i) 
 		{
 			this.setDefaultRenderer(this.getColumnClass(i), new CT());
 		}

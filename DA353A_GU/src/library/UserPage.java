@@ -158,6 +158,10 @@ public class UserPage extends JPanel {
 		});
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	private JPanel getButtonPanel() {
 
 		JPanel buttonPanel = new JPanel();
