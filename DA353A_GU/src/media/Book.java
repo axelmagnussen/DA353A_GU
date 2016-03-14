@@ -2,6 +2,7 @@ package media;
 /**
  * This class represents a book-object.
  * @author Ninjakids
+ * @since 2016-03-13
  */
 public class Book extends Media {
 
@@ -36,7 +37,7 @@ public class Book extends Media {
 	}
 
 	/**
-	 * Returns a appropriate string of a book object.
+	 * Returns an appropriate string of a book object.
 	 * @return string
 	 */
 	@Override

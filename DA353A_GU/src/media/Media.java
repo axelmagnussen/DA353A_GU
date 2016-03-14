@@ -3,8 +3,9 @@ package media;
 import java.util.Date;
 
 /**
- * This class represents a Media object
+ * This class represents a Media object.
  * @author Ninjakids
+ * @since 2016-03-13
  */
 public class Media {
 
@@ -15,7 +16,7 @@ public class Media {
 	private Date borrowDate;
 	
 	/**
-	 * This is a constructor
+	 * This is a constructor with arguments that define a media object.
 	 * @param id
 	 * @param title
 	 * @param year
@@ -29,7 +30,7 @@ public class Media {
 		this.isBorrowed = isBorrowed;
 	}
 	/**
-	 * Gets id
+	 * Gets id.
 	 * @return id
 	 */
 	public int getId() 
@@ -38,8 +39,8 @@ public class Media {
 	}
 	
 	/**
-	 * Gets title
-	 * @return Title
+	 * Gets title.
+	 * @return title
 	 */
 	public String getTitle() 
 	{
@@ -47,7 +48,7 @@ public class Media {
 	}
 	
 	/**
-	 * Gets year
+	 * Gets year.
 	 * @return year
 	 */
 	public int getYear()
@@ -56,7 +57,7 @@ public class Media {
 	}
 	
 	/**
-	 * Sets borrowed to isBorrowed
+	 * Sets borrowed to the value of isBorrowed.
 	 * @param isBorrowed
 	 */
 	public void setBorrowed(boolean isBorrowed) 
@@ -65,7 +66,7 @@ public class Media {
 	}
 	
 	/**
-	 * returns isBorrowed
+	 * Returns true if media is borrowed.
 	 * @return isBorrowed
 	 */
 	public boolean isBorrowed() 
@@ -74,7 +75,7 @@ public class Media {
 	}
 	
 	/**
-	 * Sets isBorrowed to true and sets borrowDate to borrowDate
+	 * Sets isBorrowed to true and sets date of loan to borrowDate.
 	 * @param borrowDate
 	 */
 	public void setBorrowDate(Date borrowDate)
@@ -84,7 +85,7 @@ public class Media {
 	}
 	
 	/**
-	 * reutn borrowDate
+	 * Gets date when media was borrowed.
 	 * @return borrowDate
 	 */
 	public Date getBorrowDate()
@@ -93,7 +94,7 @@ public class Media {
 	}
 	
 	/**
-	 * Checks if book is book and if dvd is dvd
+	 * Checks if book is book and if dvd is dvd.
 	 * @param obj
 	 * @return type
 	 */
