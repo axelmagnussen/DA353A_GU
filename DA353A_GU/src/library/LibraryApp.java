@@ -8,15 +8,20 @@ import collections.HashtableOH;
 import media.Media;
 
 /**
- * 
+ * This is the main class for starting the application. 
  * @author Ninjakids
- *
+ * @since 2016-03-13
  */
 public class LibraryApp {
 
 	private static JFrame frame;
 	private static LibraryController lc;
 
+	/**
+	 * Main method that starts the application by initiates a controller
+	 * and displays the login page.
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		lc = new LibraryController();
 		
@@ -25,7 +30,7 @@ public class LibraryApp {
 	}
 	
 	/**
-	 * 
+	 * Method that shows the login page.
 	 */
 	public static void showLoginPage() {
 		
@@ -40,7 +45,7 @@ public class LibraryApp {
 	}
 
 	/**
-	 * 
+	 * Method that shows the user page.
 	 */
 	public static void showUserPage() {
 		
@@ -53,14 +58,14 @@ public class LibraryApp {
 	}
 
 	/**
-	 * 
+	 * Method that displays all media in a new window. 
 	 * @param allMedia
 	 */
 	public static void showLibrary(HashtableOH<Integer, Media> allMedia) {
 		
 		JFrame libFrame = new JFrame("Library");
 		libFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		libFrame.setContentPane(new JScrollPane (new SearchTable(allMedia)));
+		libFrame.setContentPane(new JScrollPane(new SearchTable(allMedia)));
 		libFrame.setSize(550, 400); // width, height
 		libFrame.setVisible(true);
 		libFrame.setLocation(1280,315); // centers window
