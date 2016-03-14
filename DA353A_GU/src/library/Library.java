@@ -2,8 +2,10 @@ package library;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 
 import collections.AVLTree;
 import collections.HashtableOH;
@@ -34,7 +36,13 @@ public class Library {
 	 * @param mediaFile
 	 */
 	public Library(String memberFile, String mediaFile) {
-		readMembers(memberFile);
+		try {
+			members = Factory.readMembers(memberFile, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// Encoding fel?
+		} catch (FileNotFoundException e) {
+			// Kunde inte hitta filen
+		}
 		readMedia(mediaFile);
 	}
 	
