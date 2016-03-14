@@ -8,7 +8,10 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 
 import collections.AVLTree;
-
+/**
+ * Fabriksmetoder?
+ *
+ */
 public class Factory {
 	/**
 	 * Method that reads the file filename and stores the data (the members)
