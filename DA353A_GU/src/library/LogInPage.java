@@ -31,7 +31,6 @@ public class LogInPage extends JPanel implements ActionListener {
 	 */
 	public LogInPage(LibraryController lC) {
 
-		logInTxtF.setText("681102-9999");
 		this.libraryController = lC;
 
 		this.setLayout(null);
